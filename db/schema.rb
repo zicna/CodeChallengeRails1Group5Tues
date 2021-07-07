@@ -10,17 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_235231) do
+ActiveRecord::Schema.define(version: 2021_07_07_171619) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
-    t.string "category"
     t.string "supplies"
     t.integer "budget"
     t.boolean "private"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
   end
 
+  create_table "party_supplies", force: :cascade do |t|
+    t.integer "party_id", null: false
+    t.integer "supply_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["party_id"], name: "index_party_supplies_on_party_id"
+    t.index ["supply_id"], name: "index_party_supplies_on_supply_id"
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "party_supplies", "parties"
+  add_foreign_key "party_supplies", "supplies"
 end

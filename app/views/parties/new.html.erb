@@ -1,4 +1,13 @@
 <h1>Party</h1>
+<% if @party.errors.any?  %>
+    <h1><%= pluralize(@party.errors.count, "error")%></h1>
+
+    <ul>
+        <% @party.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= form_with model: @party do |f|%>
     <%= f.label :name%>
