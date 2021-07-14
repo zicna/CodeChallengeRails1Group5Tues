@@ -1,10 +1,12 @@
 class PartiesController < ApplicationController
+before_action :get_party, only: [:show, :edit, :update]
+
     def index
         @parties = Party.all.order('date desc')
     end
 
     def show 
-        @party = Party.find_by_id(params[:id])
+        @category = @party.category
     end
 
     def new
@@ -14,7 +16,6 @@ class PartiesController < ApplicationController
     end
 
     def create
-        # byebug
          @party = Party.new(party_params)
          if @party.save
             redirect_to party_path(@party)
@@ -24,11 +25,11 @@ class PartiesController < ApplicationController
     end
 
     def edit
-      @party = Party.find_by(id: params[:id])
+    #   @party = Party.find_by(id: params[:id])
     end
 
     def update
-        @party = Party.find_by(id: params[:id])
+        # @party = Party.find_by(id: params[:id])
         if @party.update(party_params)
             redirect_to party_path(@party)
         else
@@ -39,5 +40,9 @@ class PartiesController < ApplicationController
     private
     def party_params
         params.require(:party).permit(:name, :date, :budget, :category_id, :category_attributes => [:name], :supply_ids => [], :supplies_attributes => [:name] )
+    end
+
+    def get_party
+        @party = Party.find_by(id: params[:id])
     end
 end
