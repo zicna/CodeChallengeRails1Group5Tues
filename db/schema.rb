@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2021_07_07_171619) do
     t.string "name"
     t.datetime "date"
     t.integer "category_id"
-    t.integer "supply_id"
     t.integer "budget"
     t.boolean "private"
     t.datetime "created_at", precision: 6, null: false
