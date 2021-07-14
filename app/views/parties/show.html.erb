@@ -1,5 +1,5 @@
 <h1>Party name: <%= @party.name %></h1>
-<h3>Category: <%= @party.category.name %></h3>
+<h3>Category: <%= link_to @category.name, category_path(@category) %></h3>
 <h3>Supplies for our party:</h>
 <ol>
     <% @party.supplies.each do |supply| %>
