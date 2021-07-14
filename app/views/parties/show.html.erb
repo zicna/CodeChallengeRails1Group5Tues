@@ -1,2 +1,10 @@
-<h1><%= @party.name %></h1>
-<%= @party.category%>
+<h1>Party name: <%= @party.name %></h1>
+<h3>Category: <%= @party.category.name %></h3>
+<h3>Supplies for our party:</h>
+<ol>
+    <% @party.supplies.each do |supply| %>
+        <li><%= link_to supply.name, supply_path(supply) %></li>
+    <% end %>
+</ol>
+
+<%= link_to "All parties", parties_path %>

@@ -1,0 +1,7 @@
+<h2>All supplies in our database</h2>
+
+<ol>
+    <% @supplies.each do |supply| %>
+        <li><%= supply.name %></li>
+    <% end %>
+</ol>

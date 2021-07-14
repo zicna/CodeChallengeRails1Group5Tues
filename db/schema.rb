@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 2021_07_07_171619) do
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
-    t.string "supplies"
+    t.integer "category_id"
+    t.integer "supply_id"
     t.integer "budget"
     t.boolean "private"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
   end
 
   create_table "party_supplies", force: :cascade do |t|

@@ -1,4 +1,17 @@
 # README
+## part 4 
+
+   Turn the Party new form into a nested form so that you can  choose from an existing category or create a new one when you   create a party.
+   Add fields for supplies so that you can create new supplies    when you create a party.
+   Display the associations on the Party show page. => show the   category and supplies.
+   Display association on the category show page => show all   parties
+   Display associations on supply show page => show all parties
+   BONUS IF WE HAVE TIME:
+   use a different layout for your category model
+   use a different layout for a category’s show page
+   use partials to clean up your code
+   use helpers to clean up your code
+   
 ## PART 3
 Add Validations:
    - every field has to be filled out
