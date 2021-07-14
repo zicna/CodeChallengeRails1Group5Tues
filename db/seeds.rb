@@ -71,37 +71,41 @@ parties.each do |party|
     Party.create(party)
 end
 
-part_supplies = [
+party_supplies = [
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 1
     },
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 2 
     },
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 3
     },
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 4
     },
     {
-        part_id: 2,
+        party_id: 2,
         supply_id: 1
     },
     {
-        part_id: 2,
+        party_id: 2,
         supply_id: 5
     },
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 6
     },
     {
-        part_id: 1,
+        party_id: 1,
         supply_id: 7
     }
 ]
+
+party_supplies.each do |new_row| 
+    PartySupply.create(new_row)
+end
