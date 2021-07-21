@@ -1,4 +1,9 @@
 # README
+## part 5
+   Finish tasks from last week.
+   Make nested routes for parties (ex. categorie/parties)
+   Fix your form to use your nested routes to assign a category.
+   use helper methods and partials to keep your code DRY
 ## part 4 
 
    Turn the Party new form into a nested form so that you can  choose from an existing category or create a new one when you   create a party.

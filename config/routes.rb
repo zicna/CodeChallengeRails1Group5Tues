@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # get '/parties/:id', to: 'party#show', as: 'party'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :parties
+
+  resources :categories do 
+    resources :parties, only: [:index, :new, :create]
+  end
 end

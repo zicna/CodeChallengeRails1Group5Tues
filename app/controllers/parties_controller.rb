@@ -2,7 +2,13 @@ class PartiesController < ApplicationController
 before_action :get_party, only: [:show, :edit, :update]
 
     def index
-        @parties = Party.all.order('date desc')
+        # byebug
+        if params[:category_id] && @category = Category.find_by(id: params[:category_id])
+            @parties = @category.parties
+        else
+            @parties = Party.all.order('date desc')
+        end
+        
     end
 
     def show 
@@ -10,8 +16,12 @@ before_action :get_party, only: [:show, :edit, :update]
     end
 
     def new
-        @party = Party.new
-        @party.build_category
+        if params[:category_id] && @category = Category.find_by(id: params[:category_id])
+            @party = Party.new(category_id: params[:category_id])
+        else
+            @party.build_category
+            
+        end
         3.times {@party.supplies.build}
     end
 

@@ -1,11 +1,16 @@
 class CategoriesController < ApplicationController
     before_action :get_category, only: :show
     before_action :get_categories, only: :index
+
+    layout "categories"
+
     def index
+        
     end
 
     def show
         @parties = @category.parties
+        render :layout => "show"
     end
 
     private

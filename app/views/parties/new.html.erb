@@ -10,54 +10,5 @@
 <% end %>
 
 <div class="form">
-    <%= form_with model: @party do |f|%>
-        <div>
-            <%= f.label :name%>
-            <%= f.text_field :name%>
-        </div>
-    
-        <div>
-            <%= f.label :date%>
-            <%= f.datetime_field :date %>
-        </div>
-        
-        <div>
-            <%= f.label :budget%>
-            <%= f.number_field :budget%>
-        </div>
-
-        <h3> Choose from existing categories:</h3>
-        <div>
-            <%= f.collection_select :category_id, Category.all, :id, :name %>
-        </div>
-
-        <div>
-        Create new category:
-            <%= f.fields_for :category do |c|%>
-                <%= c.label :name %>
-                <%= c.text_field :name %>
-                <% end %>
-        </div><br><br>
-
-        <h3>Choose from existing supplies:</h3> 
-        <%= f.collection_check_boxes :supply_ids, Supply.all, :id, :name do |supply| %>
-            <p>
-                <%= supply.label %>
-                <%= supply.check_box %>
-            </p>
-        <% end %>
-
-        <h3>Create new supplies for your party:</h3>
-
-        <div>
-            <%= f.fields_for :supplies do |supply| %>
-                <p>
-                    <%= supply.label :name %>            
-                    <%= supply.text_field :name %>
-                </p>
-            <% end %>
-        </div>
-
-        <div><%=f.submit%></div>
-    <%end%>
+    <%= render partial: 'form' %>
 </div>

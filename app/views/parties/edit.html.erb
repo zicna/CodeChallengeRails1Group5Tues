@@ -1,17 +1,4 @@
-<h1>Party</h1>
+<h1>Edit Party</h1>
 
-<%= form_with model: @party do |f|%>
-    <%= f.label :name%>
-    <%= f.text_field :name%>
 
-    <%= f.label :date%>
-    <%= f.datetime_field :date%>
-    <%= f.label :category%>
-    <%= f.text_field :category%>
-    <%= f.label :supplies%>
-    <%= f.text_field :supplies%>
-    <%= f.label :budget%>
-    <%= f.number_field :budget%>
-
-    <%=f.submit%>
-    <%end%>
+<%= render partial: 'form' %>
